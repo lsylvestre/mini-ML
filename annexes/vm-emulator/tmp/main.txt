@@ -1,0 +1,15 @@
+function Main.f 0
+   push constant 3
+   push argument 0
+   add   
+   call Foo.g 1
+   return
+
+function Main.main 0
+   push constant 42
+   push constant 17
+   add 
+   call Main.f 1  
+   push constant 1
+   sub 
+   return

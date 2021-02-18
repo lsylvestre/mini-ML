@@ -1,0 +1,35 @@
+pc=0            BRANCH L4
+
+pc=2            RESTART
+pc=3    L1:     GRAB 1
+pc=5            ACC0
+pc=6            BNEQ 0 L2
+pc=9            ACC1
+pc=10            OFFSETINT 1
+pc=12            RETURN 2
+pc=13    L2:     ACC1
+pc=14            BNEQ 0 L3
+pc=17           CONST1
+pc=18           PUSHACC1
+pc=19           OFFSETINT -1
+pc=21           PUSHOFFSETCLOSURE0
+pc=22           APPTERM2 4
+pc=24   L3:     ACC1
+pc=25           OFFSETINT -1
+pc=27           PUSHACC1
+pc=28           PUSHOFFSETCLOSURE0
+pc=29           APPLY2
+pc=30           PUSHACC1
+pc=31           OFFSETINT -1
+pc=33           PUSHOFFSETCLOSURE0
+pc=34           APPTERM2 4
+
+pc=36   L4:     CLOSUREREC 1 0 L1 []
+pc=40           CONSTINT 4
+pc=42           PUSHCONST3
+pc=43           PUSHACC2
+pc=44           APPLY2
+pc=45           C_CALL1 "caml_print_int"
+pc=47           POP 1
+pc=49           ATOM0
+pc=50           SETGLOBAL {Ackermann}

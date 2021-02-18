@@ -1,0 +1,25 @@
+pc=0            BRANCH L3
+
+pc=2            RESTART
+pc=3    L1:     GRAB 1
+pc=5            ACC1
+pc=6            BEQ 0 L2
+pc=9            ACC1
+pc=10            OFFSETINT -1
+pc=12            PUSHACC1
+pc=13           PUSHACC3
+pc=14            MULINT
+pc=15           PUSHOFFSETCLOSURE0
+pc=16           APPTERM2 4
+pc=18   L2:     ACC0
+pc=19           RETURN 2
+
+pc=21   L3:     CLOSUREREC 1 0 L1 []
+pc=25           CONSTINT 6
+pc=27           PUSHCONST1
+pc=28           PUSHACC2
+pc=29           APPLY2
+pc=30           C_CALL1 "n2t_print_int"
+pc=31           POP 1
+pc=33           ATOM0
+pc=35           SETGLOBAL {Fact}

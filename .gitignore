@@ -1,0 +1,41 @@
+compile
+vm/zam-miniML/bin/
+vm/zam-miniML/input.ml
+nand2tetris/tools/bin/"Virtual Machine Emulator.dat"
+mini-ml/generated_files
+obytelib.log
+vm/link/a.out
+vm/link/byte.out
+*~
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.o
+*.cmx
+*.cmxs
+*.cmxa
+*.exe
+.DS_Store
+# ocamlbuild working directory
+_build/
+
+# ocamlbuild targets
+*.byte
+*.native
+
+# oasis generated files
+setup.data
+setup.log
+
+# Merlin configuring file for Vim and Emacs
+.merlin
+
+# Dune generated files
+*.install
+
+# Local OPAM switch
+_opam/
+
+

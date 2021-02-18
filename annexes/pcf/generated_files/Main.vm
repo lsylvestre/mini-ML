@@ -1,0 +1,123 @@
+function Main.apply 2
+  push argument 0
+  push constant 0
+  call ML_Internal.array_get 2
+  push constant 2
+  eq
+  not
+  if-goto L2
+  push argument 0
+  push argument 1
+  call Main.lambda2 2
+  goto L0
+label L2
+  push argument 0
+  push constant 0
+  call ML_Internal.array_get 2
+  push constant 1
+  eq
+  not
+  if-goto L1
+  push argument 0
+  push argument 1
+  call Main.lambda1 2
+  goto L0
+label L1
+label L0
+  return
+function Main.lambda1 2
+  push constant 3
+  call ML_Internal.array_create_uninitialized 1
+  pop local 1
+  push local 1
+  push constant 0
+  push constant 2
+  call ML_Internal.array_set 3
+  push local 1
+  push constant 1
+  push argument 1
+  call ML_Internal.array_set 3
+  push local 1
+  push constant 2
+  push argument 0
+  push constant 1
+  call ML_Internal.array_get 2
+  call ML_Internal.array_set 3
+  push local 1
+  return
+function Main.lambda2 0
+  push argument 0
+  push constant 1
+  call ML_Internal.array_get 2
+  if-goto L3
+  push argument 1
+  push constant 1
+  add
+  goto L4
+label L3
+  push argument 1
+  if-goto L5
+  push argument 0
+  push constant 2
+  call ML_Internal.array_get 2
+  push argument 0
+  push constant 1
+  call ML_Internal.array_get 2
+  push constant 1
+  sub
+  call Main.apply 2
+  push constant 1
+  call Main.apply 2
+  goto L6
+label L5
+  push argument 0
+  push constant 2
+  call ML_Internal.array_get 2
+  push argument 0
+  push constant 1
+  call ML_Internal.array_get 2
+  push constant 1
+  sub
+  call Main.apply 2
+  push argument 0
+  push constant 2
+  call ML_Internal.array_get 2
+  push argument 0
+  push constant 1
+  call ML_Internal.array_get 2
+  call Main.apply 2
+  push argument 1
+  push constant 1
+  sub
+  call Main.apply 2
+  call Main.apply 2
+label L6
+label L4
+  return
+function Main.main 2
+  push constant 0
+  pop local 0
+  push constant 2
+  call ML_Internal.array_create_uninitialized 1
+  pop local 1
+  push local 1
+  push constant 0
+  push constant 1
+  call ML_Internal.array_set 3
+  push local 1
+  push constant 1
+  push local 0
+  call ML_Internal.array_set 3
+  push local 1
+  pop local 0
+  push local 0
+  push constant 1
+  push local 0
+  call ML_Internal.array_set 3
+  push local 0
+  push constant 3
+  call Main.apply 2
+  push constant 2
+  call Main.apply 2
+  call ML_Internal.print_int 1
+  return

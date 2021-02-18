@@ -1,0 +1,11 @@
+///////////////////////////////////////////////////////////////
+function Main.main 2
+    push constant 42
+    pop local 0
+    push constant 17
+    pop local 1
+    push local 0
+    push local 1
+    sub
+    call ML_Internal.print_int 1
+    return

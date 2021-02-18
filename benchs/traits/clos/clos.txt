@@ -1,0 +1,21 @@
+pc=0            BRANCH L2
+
+pc=2    L1:     ENVACC2
+pc=3            PUSHENVACC1
+pc=4            PUSHACC2
+pc=5            ADDINT
+pc=6            ADDINT
+pc=7            RETURN 1
+
+pc=9    L2:     CONSTINT 42
+pc=11           PUSHCONSTINT 17
+pc=13           PUSHACC0
+pc=14           PUSHACC2
+pc=15           CLOSURE 2 L1
+pc=18           PUSHCONSTINT 6
+pc=20           PUSHACC1
+pc=21           APPLY1
+pc=22           C_CALL1 "caml_print_int"
+pc=24           POP 3
+pc=26           ATOM0
+pc=27           SETGLOBAL {Clos}

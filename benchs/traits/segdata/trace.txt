@@ -1,0 +1,1 @@
+make zam-miniML MLFILES="samples/segdata/m.ml samples/segdata/sstring.ml"

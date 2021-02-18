@@ -1,0 +1,25 @@
+pc=0            BRANCH L3
+
+pc=2    L1:     ACC0
+pc=3            BLTINT 1 L2
+pc=6            CONST1
+pc=7            RETURN 1
+pc=9    L2:     ACC0
+pc=10           OFFSETINT -2
+pc=12           PUSHOFFSETCLOSURE0
+pc=13           APPLY1
+pc=14           PUSHACC1
+pc=15           OFFSETINT -1
+pc=17           PUSHOFFSETCLOSURE0
+pc=18           APPLY1
+pc=19           ADDINT
+pc=20           RETURN 1
+
+pc=22   L3:     CLOSUREREC 1 0 L1 []
+pc=26           CONST2
+pc=27           PUSHACC1
+pc=28           APPLY1
+pc=29           C_CALL1 "caml_print_int"
+pc=31           POP 1
+pc=33           ATOM0
+pc=34           SETGLOBAL {Fib}

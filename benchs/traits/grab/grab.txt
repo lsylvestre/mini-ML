@@ -1,0 +1,29 @@
+pc=0            BRANCH L2
+
+pc=2            RESTART
+pc=3    L1:     GRAB 1
+pc=5            ENVACC2
+pc=6            PUSHENVACC1
+pc=7            PUSHACC3
+pc=8            PUSHACC3
+pc=9            ADDINT
+pc=10           ADDINT
+pc=11           ADDINT
+pc=12           RETURN 2
+
+pc=14   L2:     CONSTINT 42
+pc=16           PUSHCONSTINT 38
+pc=18           PUSHCONSTINT 4
+pc=20           PUSHACC1
+pc=21           PUSHACC3
+pc=22           CLOSURE 2 L1
+pc=25           PUSHACC1
+pc=26           PUSHACC1
+pc=27           APPLY1
+pc=28           PUSHCONSTINT 100
+pc=30           PUSHACC1
+pc=31           APPLY1
+pc=32           C_CALL1 "caml_print_int"
+pc=34           POP 5
+pc=36           ATOM0
+pc=37           SETGLOBAL {Grab}

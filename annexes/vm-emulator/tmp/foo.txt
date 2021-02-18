@@ -1,0 +1,5 @@
+function Foo.g 0
+   push constant 3
+   push argument 0
+   add   
+   return

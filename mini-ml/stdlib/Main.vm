@@ -1,0 +1,5 @@
+///////////////////////////////////////////////////////////////
+function Main.main 0
+    call ML_Start.main 0
+    push constant 0
+    return

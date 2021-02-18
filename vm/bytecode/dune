@@ -1,0 +1,9 @@
+(executable
+	(name obytelibParser)
+	(libraries str obytelib)
+)
+
+;; Avoid unused warning 
+(env
+   (dev (flags :standard -w -27))
+)

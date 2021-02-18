@@ -1,0 +1,142 @@
+// val exit : int -> 'a
+function ML_Internal.exit 0
+	//push argument 0
+	//call Sys.halt 1 
+	call Sys.halt 0
+	return
+// array ------------------------------
+// val array_length : 'a array -> int
+function ML_Internal.array_length 0 
+	push argument 0
+	call Memory.peek 1
+	return
+// val array_get : 'a array -> int -> 'a
+function ML_Internal.array_get 0
+	push argument 0
+	push argument 1
+	add
+	push constant 1
+	add
+	call Memory.peek 1
+	return
+// val array_set : 'a array -> int -> 'a -> unit
+function ML_Internal.array_set 0
+	push argument 0
+	push argument 1
+	add
+	push constant 1
+	add
+	push argument 2
+	call Memory.poke 2
+	push constant 0
+	return
+// val array_create_uninitialized : int -> 'a array
+function ML_Internal.array_create_uninitialized 1
+	push argument 0
+	push constant 1
+	add
+	call Memory.alloc 1
+    pop local 0
+    push local 0
+    push argument 0
+    call Memory.poke 2
+    push local 0
+	return
+// val array_make : int -> 'a -> 'a array  
+function ML_Internal.array_make 2
+	push argument 0
+	call ML_Internal.array_create_uninitialized 1
+	pop local 0
+	push constant 0
+	pop local 1
+label L1
+	push argument 0
+	push local 1
+	gt
+	not // ie. '<='
+	if-goto L2
+	push local 0
+	push local 1
+	push argument 1
+	call ML_Internal.array_set 3
+	pop temp 0
+	push local 1
+	push constant 1
+	add 
+	pop local 1
+	goto L1
+label L2
+	push local 0
+	return
+// val print_int : int -> unit
+function ML_Internal.print_int 0
+	push argument 0
+	call Output.printInt 1
+	push constant 0
+ 	return
+// val print_char : char -> unit
+function ML_Internal.print_char 0
+	push argument 0
+	call Output.printChar 1
+	push constant 0
+ 	return
+// val print_newline : unit -> unit
+function ML_Internal.print_newline 0
+	call Output.println 0
+	push constant 0
+ 	return
+// val print_char_array : string -> unit
+function ML_Internal.print_char_array 2
+	push argument 0
+	call ML_Internal.array_length 1
+	pop local 0
+	push constant 0
+	pop local 1
+label L1
+	push local 1
+	push local 0
+	lt
+	not
+	if-goto L2
+	push argument 0
+	push local 1
+	call ML_Internal.array_get 2
+	call Output.printChar 1
+	push constant 1
+	push local 1
+	add 
+	pop local 1
+	goto L1
+label L2
+ 	return
+//
+function ML_Internal.make_pair 1
+	push constant 2 // ou bien 3, est prévoir une coloration dans le champ 2
+	call Memory.alloc 1
+	pop local 0
+    push local 0
+	push argument 0
+	call Memory.poke 2
+	push local 0
+	push constant 1
+	add
+	push argument 1
+	call Memory.poke 2
+	push local 0
+	return
+function ML_Internal.left 0
+	push argument 0
+	push constant 1
+	add
+	call Memory.peek 1
+	return
+function ML_Internal.right 0
+	push argument 0
+	push constant 2
+	add
+	call Memory.peek 1
+	return
+// val magic : 'a -> 'b
+function ML_Internal.obj_magic 0
+	push argument 0
+	return 
