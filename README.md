@@ -1,10 +1,10 @@
-# OCaml2Tetris
+# mini-ML
 
 Implémentation de la zam OCaml pour la plateforme Nand2Tetris.
 
 ## Description
 
-Une description complète du projet est décrite dans le fichier rapport.pdf.
+voir rapport.pdf
 
 ## Installation
 
