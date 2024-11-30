@@ -1,10 +1,18 @@
-# mini-ML
+# mini-ML 
 
-Implémentation de la zam OCaml pour la plateforme Nand2Tetris.
+Projet de Master 1 STL à Sorbonne Université
+
+## Auteurs
+
+Pablito Bello et Loïc Sylvestre
+
+sous la direction d'Emmanuel Chailloux
 
 ## Description
 
-voir rapport.pdf
+Implémentation de la machine virtuelle OCaml sur la chaîne de compilation pédagogique [Nand2Tetris](https://www.nand2tetris.org)  ; pour y parvenir, nous avons implanté un compilateur pour mini-ML (un sous-ensemble fonctionnel-impératif d’OCaml) en partie auto-amorçé (bootstrap) et produisant du bytecode exécutable par la machine virtuelle Nand2Tetris ; puis nous avons implémenté en Mini-ML la machine virtuelle OCaml et sa bibliothèque d’exécution, y compris un gestionnaire automatique de mémoire pour OCaml (GC Stop&Copy).
+
+(voir rapport.pdf)
 
 ## Installation
 
@@ -31,7 +39,7 @@ Dans tous les exemples, `nom_du_fichier.ml` est à remplacer par le nom d'un fic
 
 - `make zam-miniML-run MLFILES=nom_du_fichier.ml` compile en mini-ml notre implémentation de la ZAM, puis lance le simulateur
 
-- `make zam-ocaml-run MLFILES=nom_du_fichier.ml` compile en OCaml notre implémentation de la ZAM, puis lance une implémetation Java de VM `Nand2Tetris` : *VMemulator*.
+- `make zam-ocaml-run MLFILES=nom_du_fichier.ml` compile en OCaml notre implémentation de la ZAM, puis lance une implémetation Java de la VM `Nand2Tetris` : *VMemulator*.
 
 Pour lancer un programme séparé en plusieurs fichiers, toutes les commandes précédentes peuvent contenir plusieurs noms de fichiers.
 
